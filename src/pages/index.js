@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
@@ -25,11 +25,21 @@ function openNetlifyModal() {
 
 }
 
-const IndexPage = () => {
-  initNetlifyIdentity();
+class NetlifyIdentity extends Component {
+  componentDidMount() {
+    initNetlifyIdentity();
+  }
 
+  render() {
+    return(<div></div>)
+  }
+}
+
+
+const IndexPage = () => {
   return(
     <Layout>
+      <NetlifyIdentity />
       <SEO title="Home" />
       <h1>Hi people</h1>
       <h2 onClick={() => { openNetlifyModal() }}>Login</h2>
