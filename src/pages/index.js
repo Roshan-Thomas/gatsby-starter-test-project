@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Button, Col, Form } from 'react-bootstrap';
 
-// import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { Formik, ErrorMessage } from 'formik'
 
 function initNetlifyIdentity() {
   console.log("initNetlifyIdentity called. ")
@@ -40,11 +40,11 @@ class NetlifyIdentity extends Component {
   }
 }
 
-// const encode = (data) => {
-//   return Object.keys(data)
-//     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-//     .join("&");
-// }
+const encode = (data) => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
 const IndexPage = () => {
   return(
@@ -59,11 +59,9 @@ const IndexPage = () => {
         <Image />
       </div>
 
-      {/* <Formik
+      <Formik
         initialValues={{
-          name: '',
           email: '',
-          message: '',
         }}
         onSubmit={
           (values, actions) => {
@@ -85,57 +83,36 @@ const IndexPage = () => {
         validate={values => {
           const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
           const errors = {};
-          if(!values.name) {
-            errors.name = 'Name Required'
-          }
           if(!values.email || !emailRegex.test(values.email)) {
             errors.email = 'Valid Email Required'
-          }
-          if(!values.message) {
-            errors.message = 'Message Required'
           }
           return errors;
         }}
       >
       {() => (
-        <Form name="contact-demo" data-netlify={true}>
-          <label htmlFor="name">Name: </label>
-          <Field name="name" />
-          <ErrorMessage name="name" />
-
-          <label htmlFor="email">Email: </label>
-          <Field name="email" />
-          <ErrorMessage name="email" />
-
-          <label htmlFor="message">Message: </label>
-          <Field name="message" component="textarea"/>
-          <ErrorMessage name="message" />
-
-          <button type="submit">Send</button>
+        <Form name="react-contact" data-netlify={true}>
+          <Form.Row className="align-items-center">
+            <Col xs="auto">
+              <Form.Label htmlFor="inlineFormInput" srOnly>
+                Email
+              </Form.Label>
+              <Form.Control
+                className="mb-2"
+                id="inlineFormInput"
+                placeholder="test@gmail.com"
+                type="email"
+              />
+              <ErrorMessage name="email" />
+            </Col>
+            <Col xs="auto">
+              <Button type="submit" className="mb-2">
+                Submit
+              </Button>
+            </Col>
+          </Form.Row>
         </Form>
       )}
-      </Formik> */}
-
-      <Form name="react-contact" data-netlify={true}>
-        <Form.Row className="align-items-center">
-          <Col xs="auto">
-            <Form.Label htmlFor="inlineFormInput" srOnly>
-              Email
-            </Form.Label>
-            <Form.Control
-              className="mb-2"
-              id="inlineFormInput"
-              placeholder="test@gmail.com"
-              type="email"
-            />
-          </Col>
-          <Col xs="auto">
-            <button type="submit" className="mb-2">
-              Submit
-            </button>
-          </Col>
-        </Form.Row>
-      </Form>
+      </Formik>
 
       <Link to="/page-2/">Go to page 2</Link> <br />
     </Layout>
