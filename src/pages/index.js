@@ -130,9 +130,9 @@ const IndexPage = () => {
             />
           </Col>
           <Col xs="auto">
-            <Button type="submit" className="mb-2">
+            <button type="submit" className="mb-2">
               Submit
-            </Button>
+            </button>
           </Col>
         </Form.Row>
       </Form>
