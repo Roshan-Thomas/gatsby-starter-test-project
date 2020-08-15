@@ -114,9 +114,10 @@ const IndexPage = () => {
       )}
       </Formik> */}
 
-      <Form name="contact" method="POST" data-netlify="true">
+      <Form name="contact-test" method="POST" data-netlify="true">
           <Form.Row className="align-items-center">
             <Col xs="auto">
+              <input type="hidden" name="form-name" value="contact-test" />
               <Form.Label htmlFor="inlineFormInput" srOnly>
                 Email
               </Form.Label>
