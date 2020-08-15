@@ -4,8 +4,11 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { Button, Col, Form } from 'react-bootstrap';
+
+// import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 function initNetlifyIdentity() {
   console.log("initNetlifyIdentity called. ")
@@ -37,11 +40,11 @@ class NetlifyIdentity extends Component {
   }
 }
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-}
+// const encode = (data) => {
+//   return Object.keys(data)
+//     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+//     .join("&");
+// }
 
 const IndexPage = () => {
   return(
@@ -56,7 +59,7 @@ const IndexPage = () => {
         <Image />
       </div>
 
-      <Formik
+      {/* <Formik
         initialValues={{
           name: '',
           email: '',
@@ -111,10 +114,30 @@ const IndexPage = () => {
           <button type="submit">Send</button>
         </Form>
       )}
-      </Formik>
+      </Formik> */}
+
+      <Form name="react-contact" data-netlify={true}>
+        <Form.Row className="align-items-center">
+          <Col xs="auto">
+            <Form.Label htmlFor="inlineFormInput" srOnly>
+              Email
+            </Form.Label>
+            <Form.Control
+              className="mb-2"
+              id="inlineFormInput"
+              placeholder="test@gmail.com"
+              type="email"
+            />
+          </Col>
+          <Col xs="auto">
+            <Button type="submit" className="mb-2">
+              Submit
+            </Button>
+          </Col>
+        </Form.Row>
+      </Form>
 
       <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
     </Layout>
   )
 }
