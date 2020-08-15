@@ -6,9 +6,9 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Button, Col, Form } from 'react-bootstrap';
+import { Button, Col } from 'react-bootstrap';
 
-import { Formik, ErrorMessage } from 'formik'
+import { Formik, ErrorMessage, Form } from 'formik'
 
 function initNetlifyIdentity() {
   console.log("initNetlifyIdentity called. ")
