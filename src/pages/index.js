@@ -90,7 +90,7 @@ const IndexPage = () => {
         }}
       >
       {() => (
-        <Form name="react-contact" data-netlify={true}>
+        <Form name="contact-demo" data-netlify={true}>
           <Form.Row className="align-items-center">
             <Col xs="auto">
               <Form.Label htmlFor="inlineFormInput" srOnly>
